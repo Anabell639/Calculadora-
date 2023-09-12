@@ -1,4 +1,5 @@
 const ERROR = document.getElementById('error')
+const VOLUMEN_DIARIO = document.getElementById('volumen_diario')
 const MANTENIMIENTO = document.getElementById('mantenimiento')
 const MANTENIMIENTO_Y_MEDIO = document.getElementById('mantenimiento_y_medio')
 const INPUT = document.getElementById('peso')
@@ -36,10 +37,15 @@ function holliday (peso) {
 }
 
 function showResult (mantent, peso) {
-  const calculoMantenimientoYMedio = mantent + mantent * 0.5
+  const calculoMantenimiento = Math.round(mantent / 24)
+  const calculoMantenimientoYMedio = Math.round(
+    calculoMantenimiento + calculoMantenimiento * 0.5
+  )
 
   if (peso < 30) {
-    MANTENIMIENTO.innerHTML = 'Mantenimiento ' + mantent + ' cc/h'
+    VOLUMEN_DIARIO.innerHTML = 'Volumen diario ' + mantent + ' cc'
+
+    MANTENIMIENTO.innerHTML = 'Mantenimiento ' + calculoMantenimiento + ' cc/h'
 
     MANTENIMIENTO_Y_MEDIO.innerHTML =
       'Mantenimiento y medio ' + calculoMantenimientoYMedio + ' cc/h'
@@ -49,26 +55,10 @@ function showResult (mantent, peso) {
 
     const calculoMantenimientoXMinValue = Math.round(mantent * xMinValue)
     const calculoMantenimientoXMaxValue = Math.round(mantent * xMaxValue)
+    VOLUMEN_DIARIO.innerHTML =
+      'Volumen diario ' + calculoMantenimientoXMinValue + ' cc'
     MANTENIMIENTO.innerHTML =
-      'Mantenimiento ' +
-      calculoMantenimientoXMinValue +
-      ' cc/h' +
-      ' / ' +
-      calculoMantenimientoXMaxValue +
-      ' cc/h'
-
-    const calculoMantenimientoYMedioXMinValue = Math.round(
-      calculoMantenimientoYMedio * xMinValue
-    )
-    const calculoMantenimientoYMedioXMaxValue = Math.round(
-      calculoMantenimientoYMedio * xMaxValue
-    )
-    MANTENIMIENTO_Y_MEDIO.innerHTML =
-      'Mantenimiento y medio ' +
-      calculoMantenimientoYMedioXMinValue +
-      ' cc/h' +
-      ' / ' +
-      calculoMantenimientoYMedioXMaxValue +
-      ' cc/h'
+      'Volumen diario ' + calculoMantenimientoXMaxValue + ' cc'
+    MANTENIMIENTO_Y_MEDIO.innerHTML = ' '
   }
 }
