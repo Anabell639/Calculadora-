@@ -11,13 +11,20 @@ BUTTON.addEventListener('click', () => {
 
   if (parsedPeso > 0) {
     ERROR.style.display = 'block'
+    ERROR.style.visibility = 'hidden'
+    VOLUMEN_DIARIO.style.visibility = 'visible'
+    MANTENIMIENTO.style.visibility = 'visible'
+    MANTENIMIENTO_Y_MEDIO.style.visibility = 'visible'
 
     let res = holliday(parsedPeso)
 
     showResult(res, parsedPeso)
   } else {
-    console.log('error')
+    ERROR.style.visibility = 'visible'
     ERROR.innerHTML = '*Debe completar con un número positivo'
+    VOLUMEN_DIARIO.style.visibility = 'hidden'
+    MANTENIMIENTO.style.visibility = 'hidden'
+    MANTENIMIENTO_Y_MEDIO.style.visibility = 'hidden'
   }
 })
 

@@ -5,11 +5,11 @@
     <script src="script.js" defer></script>
     <meta charset="" UTF-8 />
   </head>
-  <body>
+  <body class="backGround">
     <div id="contenedor">
       <div id="calculadora">
         <div class="contenido">
-          <h1>Hidratación Basal</h1>
+          <h1 class="tituloCalculadora">Hidratación Basal</h1>
           <td>
             <input
               class="item"
@@ -19,17 +19,17 @@
             />
             <span id="kgEnPlaceholder"> kg </span>
           </td>
-          <p class="item" id="error"></p>
+          <p class="itemError" id="error"></p>
           <button class="item" id="calcular">Calcular</button>
-          <p class="item resultado" id="volumen_diario"></p>
-          <p class="item resultado" id="mantenimiento"></p>
-          <p class="item resultado" id="mantenimiento_y_medio"></p>
+          <p class="itemResultado" id="volumen_diario"></p>
+          <p class="itemResultado" id="mantenimiento"></p>
+          <p class="itemResultado" id="mantenimiento_y_medio"></p>
         </div>
       </div>
       <div id="detalle">
         <div class="contenido">
-          <h1>¿Cómo se calcula?</h1>
-          <h4>Si pesa menos de 30kg. Holliday-Segar.</h4>
+          <h1 class="titulo">¿Cómo se calcula?</h1>
+          <h4 class="titulo">Si pesa menos de 30kg. Holliday-Segar.</h4>
           <ul>
             <li>De 0kg a 10kg, se calcula 100cc por cada kilo.</li>
             <li>
@@ -37,7 +37,9 @@
             </li>
             <li>De 20kg para arriba, se suman 20cc por cada kilo adicional</li>
           </ul>
-          <h4>Si pesa más de 30kg. Cálculo de Superficie Corporal.</h4>
+          <h4 class="titulo">
+            Si pesa más de 30kg. Cálculo de Superficie Corporal.
+          </h4>
           <p>(( peso * 4 ) + 7) / ( peso + 90 ) por 1500</p>
           <p>(( peso * 4 ) + 7) / ( peso + 90 ) por 2000</p>
         </div>
